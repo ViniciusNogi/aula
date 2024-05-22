@@ -1,18 +1,13 @@
 import java.util.Scanner;
 
 
-
-
 public class MainView {
-    private Scanner scanner = new Scanner(System.in);
-    private AnimalView animalView = new AnimalView();
-    private DonoView donoView = new DonoView();
-    private FuncionarioView funcionarioView = new FuncionarioView();
-    private ConsultaView consultaView = new ConsultaView();
-    private ServicoView servicoView = new ServicoView();
-
-
-
+    private Scanner scanner = new Scanner(System.in); //cria uma instancia para ler a entrada do usuario a partir do console
+    private AnimalView animalView = new AnimalView(); //cria uma instancia que gerencia a interface de gerenciamento de animais
+    private DonoView donoView = new DonoView(); // uma instancia que gerencia a inetrface de gerenciamento de donos
+    private FuncionarioView funcionarioView = new FuncionarioView(); //cria uma instancia que gerencia a interface de gerenciamento de funcionarios 
+    private ConsultaView consultaView = new ConsultaView(); // gerencia a interface de gerenciamento de consultas
+    private ServicoView servicoView = new ServicoView();// gerencia a interface de gerenciamento de serviços
 
 
 
@@ -28,17 +23,7 @@ public class MainView {
             System.out.println("5. Gerenciamento de Serviços");
             System.out.println("6. Sair");
 
-
-
-
-
-
             int opcoes = Integer.parseInt(scanner.nextLine());
-
-
-
-
-
 
             switch (opcoes) {
                 case 1:
@@ -64,11 +49,6 @@ public class MainView {
             }
         }
     }
-
-
-
-
-
 
     public static void main(String[] args) {
         MainView mainView = new MainView();
