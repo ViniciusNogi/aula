@@ -1,28 +1,24 @@
-import java.util.Scanner;
+package com.clinica.view; //Este é o pacote ao qual a classe MainView pertence.
 
+import java.util.Scanner; //Importa a classe Scanner para possibilitar a leitura de entrada do usuário a partir do console.
 
-public class MainView {
-    private Scanner scanner = new Scanner(System.in); //cria uma instancia para ler a entrada do usuario a partir do console
-    private AnimalView animalView = new AnimalView(); //cria uma instancia que gerencia a interface de gerenciamento de animais
-    private DonoView donoView = new DonoView(); // uma instancia que gerencia a inetrface de gerenciamento de donos
-    private FuncionarioView funcionarioView = new FuncionarioView(); //cria uma instancia que gerencia a interface de gerenciamento de funcionarios 
-    private ConsultaView consultaView = new ConsultaView(); // gerencia a interface de gerenciamento de consultas
-    private ServicoView servicoView = new ServicoView();// gerencia a interface de gerenciamento de serviços
+public class MainView { //Declaração da classe MainView.
+    
+    private Scanner scanner = new Scanner(System.in); //Declara e inicializa um objeto Scanner para capturar entrada do usuário a partir do console
+    
+    //Declara e inicializa objetos das classes AnimalView, DonoView, FuncionarioView, ConsultaView e ServicoView, que são responsáveis por gerenciar as diferentes partes da aplicação
+    private AnimalView animalView = new AnimalView();
+    private DonoView donoView = new DonoView();
+    private FuncionarioView funcionarioView = new FuncionarioView();
+    private ConsultaView consultaView = new ConsultaView();
+    private ServicoView servicoView = new ServicoView();
 
-
-
-
-//declara um método público exibirMenuPrincipal que n retorna nada (void)
+    // Método para exibir o menu principal
     public void exibirMenuPrincipal() {
-
-
-        //while inicia um loop infinito para exibir repetidamente o menu principal até que o usuário escolha sair
-        
-        while (true) {
-           
-            // System.out.println(...): Exibe o menu principal com as opções de gerenciamento (animais, donos, funcionários, consultas, serviços, e sair)
+        while (true) { //Inicia um loop infinito para manter o menu principal visível até que o usuário decida sair.
             
-           System.out.println("\n--- Sistema de Clínica Veterinária ---");
+            //Exibe as opções do menu principal para o usuário.
+            System.out.println("\n--- Sistema de Clínica Veterinária ---");
             System.out.println("1. Gerenciamento de Animais");
             System.out.println("2. Gerenciamento de Donos");
             System.out.println("3. Gerenciamento de Funcionários");
@@ -30,53 +26,38 @@ public class MainView {
             System.out.println("5. Gerenciamento de Serviços");
             System.out.println("6. Sair");
 
-            // le a escolha do usuário como uma linha de texto, a converte para um inteiro e armazena em opcoes
-            int opcoes = Integer.parseInt(scanner.nextLine());
+            int escolha = Integer.parseInt(scanner.nextLine());//Captura a escolha do usuário a partir do console e converte para um número inteiro
 
-            //avalia o valor de opcoes e executa o bloco de código de acorda co escolha feita pelo usuario
-            switch (opcoes) {
-                // chama o método exibirMenu da instância animalView, que exibe o menu de gerenciamento de animais
+            
+            //Verifica a escolha do usuário e chama o método correspondente na classe apropriada para exibir o menu correspondente ou sair do sistema
+            switch (escolha) {
                 case 1:
                     animalView.exibirMenu();
                     break;
-                //chama o método exibirMenu da instância odonoView, que exibe o menu de gerenciamento de donos
-                    case 2:
+                case 2:
                     donoView.exibirMenu();
                     break;
-
-                    //chama o método exibirMenu da instância funcionarioView, que exibe o menu de gerenciamento de funcionários
                 case 3:
                     funcionarioView.exibirMenu();
                     break;
-
-                    //chama o método exibirMenu da instância consultaView, que exibe o menu de gerenciamento de consultas
                 case 4:
                     consultaView.exibirMenu();
                     break;
-
-                 //   chama o método exibirMenu da instância servicoView, que exibe o menu de gerenciamento de serviços
                 case 5:
                     servicoView.exibirMenu();
                     break;
-
-                    //Exibe uma mensagem de saída e termina o loop e o método
-
                 case 6:
                     System.out.println("Saindo do sistema...");
                     return;
-                    
-                    //exibe uma mensagem de erro se a escolha do usuário não for válida.
                 default:
-                    System.out.println("Opção inválida.");
+                    System.out.println("Escolha inválida.");
             }
         }
     }
-
-    //declara o método main, que é o ponto de entrada da aplicação
+ 
+    //Método main responsável por iniciar a execução da aplicação, criando uma instância da classe MainView e chamando o método exibirMenuPrincipal() para iniciar o menu principal.
     public static void main(String[] args) {
-        //cria uma instância da classe MainView
         MainView mainView = new MainView();
-        //Chama o método exibirMenuPrincipal da instância mainView para iniciar a interação com o usuário
         mainView.exibirMenuPrincipal();
     }
 }

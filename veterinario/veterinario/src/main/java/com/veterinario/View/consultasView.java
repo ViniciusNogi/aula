@@ -1,71 +1,60 @@
+//Pacote e Importações:
+package com.clinica.view;
 import java.util.Scanner;
-//importa a classe Scanner: que é necessária para ler a entrada do usuário a partir do console
+import com.clinica.model.entity.Consulta;
 
+//Declara a classe ConsultaView
+public class ConsultaView {
+    private Scanner scanner = new Scanner(System.in);// ////Cria uma instância de Scanner para ler a entrada do usuário a partir do console.
 
-
-public class ConsultaView { //declaração da classe ConsultaView, classe responsável pela interface de gerenciamento de consultas
-    
-    
-    private Scanner scanner = new Scanner(System.in);//cria um objeto Scanner: Permite a leitura de entradas do usuário pelo console
-
-    public void exibirMenu() { //declara o método exibirMenu: exibe o menu de gerenciamento de consultas e lida com as escolhas do usuário
-        while (true) { //inicia um loop infinito: mantém o menu exibido até o usuário escolher sair
-           
-           //exibe as opções do menu: mostra as ações disponíveis para gerenciamento de consultas
+    // Método para exibir o menu de gerenciamento de consultas
+    public void exibirMenu() {
+        
+        while (true) { // //Entra em um loop infinito (while (true)) para continuar exibindo o menu até o usuário escolher a opção "Voltar"
+            
+            ////Exibe as opções do menu para inserir, atualizar, excluir ou voltar.
             System.out.println("\n--- Gerenciamento de Consultas ---");
             System.out.println("1. Inserir Consulta");
             System.out.println("2. Atualizar Consulta");
             System.out.println("3. Excluir Consulta");
             System.out.println("4. Voltar");
 
-            int escolha = Integer.parseInt(scanner.nextLine()); //lê a escolha do usuário: Converte a entrada do usuário de uma string para um inteiro e a armazena em escolha
+            int escolha = Integer.parseInt(scanner.nextLine()); ////Lê a escolha do usuário, converte para um inteiro e usa um switch para executar o método correspondente.
 
-            switch (escolha) { //avalia a escolha do usuário: executa o bloco de código correspondente à escolha
-                
+            //recebe a escolha do usuario e executa 
+            switch (escolha) {
                 case 1:
-                    inserirConsulta();//chama o método inserirConsulta
+                    inserirConsulta();
                     break;
                 case 2:
-                    atualizarConsulta(); //chama o método atualizarConsulta
+                    atualizarConsulta();
                     break;
                 case 3:
-                    excluirConsulta();//chama o método excluirConsulta
+                    excluirConsulta();
                     break;
-                case 4: 
-                    return;//sai do método exibirMenu, interrompendo o loop.
+                case 4:
+                    return;
                 default:
-                    System.out.println("Escolha inválida."); //informa que a escolha é inválida
+                    System.out.println("Escolha inválida.");
             }
         }
     }
 
-
-
-    //declara o método inserirConsulta: exibe uma mensagem e representa onde a lógica de inserção de consulta deve ser implementada
+    // Método para inserir uma nova consulta
     private void inserirConsulta() {
         System.out.println("Inserindo nova consulta...");
-        //lógica para inserir consulta
+        // Implemente a lógica para inserir consulta
     }
 
-
-    //declara o método atualizarConsulta: exibe uma mensagem e representa onde a lógica de atualização de consulta deve ser implementada    
+    // Método para atualizar uma consulta existente
     private void atualizarConsulta() {
         System.out.println("Atualizando consulta...");
-        // lógica para atualizar consulta
+        // Implemente a lógica para atualizar consulta
     }
 
-
-    //declara o método excluirConsulta: exibe uma mensagem e representa onde a lógica de exclusão de consulta deve ser implementada
+    // Método para excluir uma consulta
     private void excluirConsulta() {
         System.out.println("Excluindo consulta...");
-        //lógica para excluir consulta
+        // Implemente a lógica para excluir consulta
     }
 }
-
-
-
-///importação: Importa Scanner para leitura do console.
-//classe: Declara a classe ConsultaView.
-//variável de Instância: Cria um Scanner para ler a entrada do usuário.
-//método exibirMenu: Exibe o menu de gerenciamento de consultas e lida com as escolhas do usuário.
-//métodos Auxiliares: inserirConsulta, atualizarConsulta, e excluirConsulta são responsáveis pelas respectivas operações, mas ainda precisam ser implementados.

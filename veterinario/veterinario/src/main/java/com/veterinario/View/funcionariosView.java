@@ -1,73 +1,58 @@
+package com.clinica.view;
+
+//Aqui, estamos importando duas classes para serem usadas no código. Scanner é uma classe Java que permite a leitura de entrada do usuário, enquanto Funcionario é uma classe específica do projeto que  representa um funcionário.
 import java.util.Scanner;
-//importa a classe Scanner para ler a entrada do usuário a partir do console
+import com.clinica.model.entity.Funcionario;
 
-public class FuncionarioView { //declara a classe FuncionarioView
-    
-    private Scanner scanner = new Scanner(System.in);//cria uma instância de Scanner para ler a entrada do usuário
+public class FuncionarioView {
+    private Scanner scanner = new Scanner(System.in);
 
-    public void exibirMenu() { //declara o método exibirMenu, responsável por mostrar o menu de gerenciamento de funcionários
-        
-        while (true) { //inicia um loop infinito para exibir continuamente o menu até que o usuário escolha sair
+    // Método para exibir o menu de gerenciamento de funcionários
+    public void exibirMenu() {
+        while (true) { ////Início de um loop infinito para manter o menu visível até que o usuário decida sair.
             
-            //exibe as opções do menu no console
+            ////Exibe as opções do menu para o usuário.
             System.out.println("\n--- Gerenciamento de Funcionários ---");
             System.out.println("1. Inserir Funcionário");
             System.out.println("2. Atualizar Funcionário");
             System.out.println("3. Excluir Funcionário");
             System.out.println("4. Voltar");
 
-            int escolha = Integer.parseInt(scanner.nextLine()); //lê a escolha do usuário como uma linha de texto, converte para inteiro e armazena na variável escolha
+            int escolha = Integer.parseInt(scanner.nextLine()); ////Captura a escolha do usuário a partir do console e converte para um número inteiro.
 
-            switch (escolha) { //avalia o valor de escolha e executa o bloco de código correspondente
-                
+            switch (escolha) {////Verifica a escolha do usuário e chama o método correspondente para realizar a ação desejada.
                 case 1:
-                    inserirFuncionario(); //chama o método inserirFuncionario
+                    inserirFuncionario();
                     break;
                 case 2:
-                    atualizarFuncionario(); // chama o método atualizarFuncionario
+                    atualizarFuncionario();
                     break;
                 case 3:
-                    excluirFuncionario();//chama o método excluirFuncionario
+                    excluirFuncionario();
                     break;
-                case 4: // sai do método exibirMenu
+                case 4:
                     return;
                 default:
-                    System.out.println("Escolha inválida."); //imprime "Escolha inválida." se a entrada não corresponder a nenhuma opção
+                    System.out.println("Escolha inválida.");
             }
         }
     }
 
-
-    //método inserirFuncionario
-    //imprime uma mensagem indicando a inserção de um novo funcionário. Aqui será implementada a lógica para inserir um funcionário
+    // Método para inserir um novo funcionário
     private void inserirFuncionario() {
         System.out.println("Inserindo novo funcionário...");
-        //lógica para inserir funcionário
+        // lógica para inserir funcionário
     }
 
-
-
-
-    //método atualizarFuncionario
-    //imprime uma mensagem indicando a atualização de um funcionário. Aqui será implementada a lógica para atualizar um funcionário
+    // Método para atualizar um funcionário existente
     private void atualizarFuncionario() {
         System.out.println("Atualizando funcionário...");
-        //lógica para atualizar funcionário
+        // lógica para atualizar funcionário
     }
 
-
-
-    //método excluirFuncionario
-    //imprime uma mensagem indicando a exclusão de um funcionário. Aqui será implementada a lógica para excluir um funcionário
+    // Método para excluir um funcionário
     private void excluirFuncionario() {
         System.out.println("Excluindo funcionário...");
         //  lógica para excluir funcionário
     }
 }
-
-
-//Importação: Importa a classe Scanner para leitura de entrada do usuário.
-//Classe: Declara a classe FuncionarioView.
-//Variável de Instância: Cria um Scanner para ler entradas do usuário.
-//Método exibirMenu: Exibe o menu de gerenciamento de funcionários e lida com as escolhas do usuário.
-//Métodos Auxiliares: inserirFuncionario, atualizarFuncionario, e excluirFuncionario realizam as respectivas operações de gerenciamento de funcionários, mas ainda precisam ser implementados.
