@@ -35,21 +35,45 @@ public class ServicoView {
         }
     }
 
-    // Método para inserir um novo serviço
+    //metodo para inserir um novo serviço
     private void inserirServico() {
-        System.out.println("Inserindo novo serviço...");
-        // Implemente a lógica para inserir serviço
+        
+        //cria uma nova instância de Servico com os dados coletados
+        Servico novoServico = new Servico(nome, descricao, preco);
+        
+        // Chama o serviço para inserir o novo serviço no banco de dados
+        servicoService.inserir(novoServico);
+
+        
+        System.out.println("Serviço inserido com sucesso!");
     }
 
-    // Método para atualizar um serviço existente
+
+
+
+    //atualizar um serviço existente
     private void atualizarServico() {
-        System.out.println("Atualizando serviço...");
-        // Implemente a lógica para atualizar serviço
+        
+        //cria uma instância de Servico com os dados atualizados
+        Servico servicoAtualizado = new Servico(id, nome, descricao, preco);
+        
+        //chama o serviço para atualizar o serviço no banco de dados
+        servicoService.atualizar(servicoAtualizado);
+
+        System.out.println("Serviço atualizado com sucesso!");
     }
 
-    // Método para excluir um serviço
+
+
+
+
+    //excluir um serviço
     private void excluirServico() {
-        System.out.println("Excluindo serviço...");
-        // Implemente a lógica para excluir serviço
+       
+        //chama o serviço para excluir o serviço no banco de dados
+       servicoService.excluir(id);
+
+       
+       System.out.println("Serviço excluído com sucesso!");
     }
 }

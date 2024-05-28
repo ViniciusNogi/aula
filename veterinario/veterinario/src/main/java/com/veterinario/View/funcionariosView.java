@@ -38,21 +38,54 @@ public class FuncionarioView {
         }
     }
 
-    // Método para inserir um novo funcionário
+
+
+
+
+    //inserir um novo funcionário
     private void inserirFuncionario() {
-        System.out.println("Inserindo novo funcionário...");
-        // lógica para inserir funcionário
+        
+        //cria uma nova instância de Funcionario com os dados coletados
+        Funcionario novoFuncionario = new Funcionario(nome, cargo, salario);
+        
+        //chama o serviço para inserir o novo funcionário no banco de dados
+        funcionarioService.inserir(novoFuncionario);
+
+        System.out.println("Funcionário inserido com sucesso!");
     }
 
-    // Método para atualizar um funcionário existente
+
+
+
+
+
+
+
+    //atualizar um funcionário existente
     private void atualizarFuncionario() {
-        System.out.println("Atualizando funcionário...");
-        // lógica para atualizar funcionário
+         
+        //cria uma instância de Funcionario com os dados atualizados
+         Funcionario funcionarioAtualizado = new Funcionario(id, nome, cargo, salario);
+        
+         //chama o serviço para atualizar o funcionário no banco de dados
+        funcionarioService.atualizar(funcionarioAtualizado);
+
+        System.out.println("Funcionário atualizado com sucesso!");
     }
 
-    // Método para excluir um funcionário
+
+
+
+
+
+
+
+
+    //excluir um funcionário
     private void excluirFuncionario() {
-        System.out.println("Excluindo funcionário...");
-        //  lógica para excluir funcionário
+       
+        funcionarioService.excluir(id);
+
+        System.out.println("Funcionário excluído com sucesso!");
     }
 }

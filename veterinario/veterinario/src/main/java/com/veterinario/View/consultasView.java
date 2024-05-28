@@ -40,21 +40,59 @@ public class ConsultaView {
         }
     }
 
-    // Método para inserir uma nova consulta
+
+
+
+
+    //inserir uma nova consulta
     private void inserirConsulta() {
         System.out.println("Inserindo nova consulta...");
-        // Implemente a lógica para inserir consulta
+        
+        
+        // cria uma nova instância de Consulta com os dados coletados
+        Consulta novaConsulta = new Consulta(animalId, veterinario, data, descricao);
+        
+        
+        // Chama o serviço para inserir a nova consulta no banco de dados
+          consultaService.inserir(novaConsulta);
+
+          System.out.println("Consulta inserida com sucesso!");
     }
 
-    // Método para atualizar uma consulta existente
+
+
+
+
+    
+    
+    //atualizar uma consulta existente
     private void atualizarConsulta() {
         System.out.println("Atualizando consulta...");
-        // Implemente a lógica para atualizar consulta
+    
+    
+        // cria uma instância de Consulta com os dados atualizados
+        Consulta consultaAtualizada = new Consulta(id, animalId, veterinario, data, descricao);
+    
+        // chama o serviço para atualizar a consulta no banco de dados
+        consultaService.atualizar(consultaAtualizada);
+
+        System.out.println("Consulta atualizada com sucesso!");
     }
 
-    // Método para excluir uma consulta
+
+
+
+
+
+
+    // excluir uma consulta
     private void excluirConsulta() {
         System.out.println("Excluindo consulta...");
-        // Implemente a lógica para excluir consulta
+    
+    
+        // chama o serviço para excluir a consulta no banco de dados pelo id
+        consultaService.excluir(id);
+
+        System.out.println("Consulta excluída com sucesso!");
     }
 }

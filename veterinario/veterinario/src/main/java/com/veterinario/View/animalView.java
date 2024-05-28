@@ -49,21 +49,54 @@ public class AnimalView {
         }
     }
 
-    // Método para inserir um novo animal
+    
+    
+    
+
+
+
+    // método para inserir um novo animal
     private void inserirAnimal() {
         System.out.println("Inserindo novo animal...");
-        // Implemente a lógica para inserir animal
+    
+    
+        Animal novoAnimal = new Animal(nome, especie, idade);
+
+        // chama o serviço para inserir o novo animal no banco de dados
+        animalService.inserir(novoAnimal);
+
+        System.out.println("Animal inserido com sucesso!");
     }
 
-    // Método para atualizar um animal existente
+
+
+
+    //metodo atualizar um animal existente
     private void atualizarAnimal() {
         System.out.println("Atualizando animal...");
-        // Implemente a lógica para atualizar animal
+        Animal animalAtualizado = new Animal(id, nome, especie, idade);
+
+        //chama o serviço para atualizar o animal no banco de dados
+        animalService.atualizar(animalAtualizado);
+
+        System.out.println("Animal atualizado com sucesso!");
     }
 
-    // Método para excluir um animal
+
+
+
+
+
+
+
+    
+    //excluir um animal
     private void excluirAnimal() {
         System.out.println("Excluindo animal...");
-        // Implemente a lógica para excluir animal
+        
+        animalService.excluir(id);
+
+        System.out.println("Animal excluído com sucesso!");
     }
 }
+

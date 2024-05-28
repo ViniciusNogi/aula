@@ -43,22 +43,58 @@ public class DonoView {
     }
 
 
+    
+    
     //Declaração do método inserirDono(), responsável por inserir um novo dono na aplicação.
     // Método para inserir um novo dono
     private void inserirDono() {
-        System.out.println("Inserindo novo dono..."); //Exibe uma mensagem para indicar que um novo dono está sendo inserido.
-        // Implemente a lógica para inserir dono
+                
+        //Cria uma nova instância de Dono com os dados coletados
+        Dono novoDono = new Dono(nome, endereco, telefone);
+        
+        
+        donoService.inserir(novoDono);
+
+        System.out.println("Dono inserido com sucesso!");
     }
 
-    // Método para atualizar um dono existente
+
+
+
+
+
+
+
+
+    //atualizar um dono existente
     private void atualizarDono() {
         System.out.println("Atualizando dono..."); //Exibe uma mensagem para indicar que um dono está sendo atualizado
-        // Implemente a lógica para atualizar dono
+         
+        //cria uma instância de Dono com os dados atualizados
+         Dono donoAtualizado = new Dono(id, nome, endereco, telefone);
+          
+         
+         //chama o serviço para atualizar o dono no banco de dados
+        donoService.atualizar(donoAtualizado);
+
+        System.out.println("Dono atualizado com sucesso!");
     }
+
+
+
+
+
+
+
+
 
     // Método para excluir um dono
     private void excluirDono() {
         System.out.println("Excluindo dono...");//Exibe uma mensagem para indicar que um dono está sendo excluído
-        // Implemente a lógica para excluir dono
+    
+        donoService.excluir(id);
+
+        System.out.println("Dono excluído com sucesso!");
     }
 }
+
